@@ -1,10 +1,10 @@
 const VERSION: &str = env!("CARGO_PKG_VERSION");
-const SCRATCHPAD_LENGHT: usize = 65536;
+const SCRATCHPAD_LENGTH: usize = 65536;
 const NUM_RUNS: usize = 1024;
 
 fn main() {
     println!("Number Benchmark v{VERSION}");
-    println!("Scratchpad lenght:{SCRATCHPAD_LENGHT} Rounds:{NUM_RUNS}");
+    println!("Scratchpad length:{SCRATCHPAD_LENGTH} Rounds:{NUM_RUNS}");
 
     let inital_time = std::time::Instant::now();
     
@@ -67,7 +67,7 @@ fn all_rounds_u8_addition_benchmark(){
 
 /// Performs the u8 addition benchmark.
 fn perform_u8_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0u8; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0u8; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_u8(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -93,7 +93,7 @@ fn all_rounds_u16_addition_benchmark(){
 
 /// Performs the u16 addition benchmark.
 fn perform_u16_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0u16; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0u16; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_u16(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -119,7 +119,7 @@ fn all_rounds_u32_addition_benchmark(){
 
 /// Performs the u32 addition benchmark.
 fn perform_u32_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0u32; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0u32; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_u32(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -145,7 +145,7 @@ fn all_rounds_u64_addition_benchmark(){
 
 /// Performs the u64 addition benchmark.
 fn perform_u64_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0u64; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0u64; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_u64(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -171,7 +171,7 @@ fn all_rounds_u128_addition_benchmark(){
 
 /// Performs the u128 addition benchmark.
 fn perform_u128_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0u128; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0u128; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_u128(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -197,7 +197,7 @@ fn all_rounds_f32_short_range_addition_benchmark(){
 
 /// Performs the f32 addition benchmark on values 0..1.
 fn perform_f32_short_range_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0f32; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0f32; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_f32(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -223,7 +223,7 @@ fn all_rounds_f32_long_range_addition_benchmark(){
 
 /// Performs the f32 addition benchmark on any float.
 fn perform_f32_long_range_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0f32; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0f32; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_any_f32(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -249,7 +249,7 @@ fn all_rounds_f64_short_range_addition_benchmark(){
 
 /// Performs the f64 addition benchmark on values 0..1.
 fn perform_f64_short_range_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0f64; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0f64; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_f64(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -275,7 +275,7 @@ fn all_rounds_f64_long_range_addition_benchmark(){
 
 /// Performs the f64 addition benchmark on any float.
 fn perform_f64_long_range_addition_benchmark() -> std::time::Duration {
-    let mut scratchpad = [0f64; SCRATCHPAD_LENGHT*2];
+    let mut scratchpad = [0f64; SCRATCHPAD_LENGTH*2];
     randomly_fill_scratchpad_any_f64(&mut scratchpad);
 
     let now = std::time::Instant::now();
@@ -286,112 +286,112 @@ fn perform_f64_long_range_addition_benchmark() -> std::time::Duration {
 }
 
 /// Fills a scratchpad with random u128 data.
-fn randomly_fill_scratchpad_u128(pad: &mut [u128; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_u128(pad: &mut [u128; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::u128(..);
     }
 }
 
 /// Fills a scratchpad with random u64 data.
-fn randomly_fill_scratchpad_u64(pad: &mut [u64; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_u64(pad: &mut [u64; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::u64(..);
     }
 }
 
 /// Fills a scratchpad with random u32 data.
-fn randomly_fill_scratchpad_u32(pad: &mut [u32; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_u32(pad: &mut [u32; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::u32(..);
     }
 }
 
 /// Fills a scratchpad with random u16 data.
-fn randomly_fill_scratchpad_u16(pad: &mut [u16; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_u16(pad: &mut [u16; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::u16(..);
     }
 }
 
 /// Fills a scratchpad with random u8 data.
-fn randomly_fill_scratchpad_u8(pad: &mut [u8; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_u8(pad: &mut [u8; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::u8(..);
     }
 }
 
 /// Fills a scratchpad with random f64 values between 0 and 1.
-fn randomly_fill_scratchpad_f64(pad: &mut [f64; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_f64(pad: &mut [f64; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::f64();
     }
 }
 
 /// Fills a scratchpad with totally random f64 values. (Including inf, nan etc.)
-fn randomly_fill_scratchpad_any_f64(pad: &mut [f64; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_any_f64(pad: &mut [f64; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = f64::from_bits(fastrand::u64(..));
     }
 }
 
 /// Fills a scratchpad with random f32 values between 0 and 1.
-fn randomly_fill_scratchpad_f32(pad: &mut [f32; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_f32(pad: &mut [f32; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = fastrand::f32();
     }
 }
 
 /// Fills a scratchpad with totally random f32 values. (Including inf, nan etc.)
-fn randomly_fill_scratchpad_any_f32(pad: &mut [f32; SCRATCHPAD_LENGHT*2]) {
+fn randomly_fill_scratchpad_any_f32(pad: &mut [f32; SCRATCHPAD_LENGTH*2]) {
     for value in pad {
         *value = f32::from_bits(fastrand::u32(..));
     }
 }
 
 /// Runs through every even value of the scratchpad and performs wrapping addition with the one that follows it.
-fn compute_u128_addition(pad: &[u128; SCRATCHPAD_LENGHT*2]) {
+fn compute_u128_addition(pad: &[u128; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value.wrapping_add(pad[ind+1]));
     }
 }
 
 /// Runs through every even value of the scratchpad and performs wrapping addition with the one that follows it.
-fn compute_u64_addition(pad: &[u64; SCRATCHPAD_LENGHT*2]) {
+fn compute_u64_addition(pad: &[u64; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value.wrapping_add(pad[ind+1]));
     }
 }
 
 /// Runs through every even value of the scratchpad and performs wrapping addition with the one that follows it.
-fn compute_u32_addition(pad: &[u32; SCRATCHPAD_LENGHT*2]) {
+fn compute_u32_addition(pad: &[u32; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value.wrapping_add(pad[ind+1]));
     }
 }
 
 /// Runs through every even value of the scratchpad and performs wrapping addition with the one that follows it.
-fn compute_u16_addition(pad: &[u16; SCRATCHPAD_LENGHT*2]) {
+fn compute_u16_addition(pad: &[u16; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value.wrapping_add(pad[ind+1]));
     }
 }
 
 /// Runs through every even value of the scratchpad and performs wrapping addition with the one that follows it.
-fn compute_u8_addition(pad: &[u8; SCRATCHPAD_LENGHT*2]) {
+fn compute_u8_addition(pad: &[u8; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value.wrapping_add(pad[ind+1]));
     }
 }
 
 /// Runs through every even value of the scratchpad and performs float addition with the one that follows it.
-fn compute_f64_addition(pad: &[f64; SCRATCHPAD_LENGHT*2]) {
+fn compute_f64_addition(pad: &[f64; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value + pad[ind+1]);
     }
 }
 
 /// Runs through every even value of the scratchpad and performs float addition with the one that follows it.
-fn compute_f32_addition(pad: &[f32; SCRATCHPAD_LENGHT*2]) {
+fn compute_f32_addition(pad: &[f32; SCRATCHPAD_LENGTH*2]) {
     for (ind, value) in pad.iter().enumerate().step_by(2) {
         std::hint::black_box(value + pad[ind+1]);
     }

@@ -11,7 +11,7 @@ Performed on AMD Ryzen 7 2700X @ 3.8 GHz
 
 ```
 Number Benchmark v0.1.1
-Scratchpad lenght:65536 Rounds:1024
+Scratchpad length:65536 Rounds:1024
 Performing wrapping integer addition benchmark.
 u8   Average: 63.91µs Std.dev: 663.00ns
 u16  Average: 67.25µs Std.dev: 193.00ns
@@ -31,7 +31,7 @@ Total runtime: 4.05s
 
 ```
 Number Benchmark v0.1.1
-Scratchpad lenght:65536 Rounds:1024
+Scratchpad length:65536 Rounds:1024
 Performing wrapping integer addition benchmark.  
 u8   Average: 1.85ms Std.dev: 4.02µs  
 u16  Average: 1.85ms Std.dev: 10.34µs  
