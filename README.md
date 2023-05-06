@@ -48,4 +48,5 @@ Total runtime: 93.30s
 ```
 
 ## Other
-Published under GPL-3.0 license.
+Published under Apache License 2.0.
+This work uses the [fastrand](https://github.com/smol-rs/fastrand) crate licensed under Apache License 2.0.
