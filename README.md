@@ -1,9 +1,9 @@
 # number-benchmark
-Benchmark comparing rust data types. 
+A Benchmark comparing rust data types. 
 ## Overview
 This project compares the execution times of different data type additions.  
 It does this by initializing a scratchpad of random values and adding each even value to the one following it.  
-Each data type has its own set of functions to reduce compiler optimizations skewing the results.
+Each data type has its own set of functions to reduce compiler optimizations, skewing the results.
 Please keep in mind that this models a very specific use case.  
 ## Example Results
 Performed on AMD Ryzen 7 2700X @ 3.8 GHz
